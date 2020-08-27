@@ -22,16 +22,19 @@
     />
     <script defer src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script defer src="https://unpkg.com/vue-smooth-scroll@1.0.11"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/combine/npm/vuelidate@0.7.5/dist/vuelidate.min.js,npm/vuelidate@0.7.5/dist/validators.min.js"
+    ></script>
     <script defer src="js/app.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
     <title>Fylo Page</title>
   </head>
   <body>
     <div id="app">
       <header
-        :class="{ 'header--hidden': !showHeader, 'header--coloured': headerColoured }"
+        :class="{ 'header--hidden': !header.showHeader, 'header--coloured': header.headerColoured }"
         class="header"
       >
         <div class="header__content">
@@ -239,44 +242,110 @@
         >
           <div id="try" class="form__wrapper">
             <form class="form__inner-content" action="#">
-              <h3 class="form__title title title--h2">
-                Get early access today
-              </h3>
-              <p class="form__text text text--lg">
-                It only takes a minute to sign up and our free starter tier is
-                extremely generous. If you have any questions, our support team
-                would be happy to help you.
-              </p>
-              <div class="form__field">
-                <input
-                  v-model="firstName"
-                  class="input"
-                  type="text"
-                  placeholder="First Name"
-                  type="text"
-                />
-                <input
-                  v-model="lastName"
-                  type="text"
-                  class="input"
-                  placeholder="Last Name"
-                  type="text"
-                />
-                <input
-                  v-model="email"
-                  type="email"
-                  class="input"
-                  placeholder="email@example.com"
-                  type="text"
-                />
+              <div v-if="!form.isFormSent" class="form__text">
+                <h3 class="form__title title title--h2">
+                  Get early access today
+                </h3>
+                <p class="form__text text text--lg">
+                  It only takes a minute to sign up and our free starter tier is
+                  extremely generous. If you have any questions, our support
+                  team would be happy to help you.
+                </p>
+              </div>
+              <div v-if="form.isFormSent" class="form__text">
+                <h3 class="form__title title title--h2">Success!</h3>
+                <p class="form__text text text--lg">
+                  Congratulations, <strong>{{ fullName }}</strong>! <br />
+                  The instructions have just been sent to
+                  <strong>{{ this.form.email }}</strong>. <br />
+                  (test mode, no actual letter is sent)
+                </p>
+              </div>
+              <div v-if="!form.isFormSent" class="form__field">
+                <div class="form__input">
+                  <input
+                    v-model="$v.form.firstName.$model"
+                    :class="{
+                    'input--invalid': $v.form.firstName.$error,
+                    'input--valid': !$v.form.firstName.$error && $v.form.firstName.$dirty }"
+                    class="input input--capitalize"
+                    type="text"
+                    placeholder="First Name"
+                    type="text"
+                  />
+                  <p
+                    v-if="!$v.form.firstName.required && $v.form.firstName.$error"
+                    class="text text--md text--bold text--error"
+                  >
+                    First name is required
+                  </p>
+                  <p
+                    v-else-if="!$v.form.firstName.alpha && $v.form.firstName.$error"
+                    class="text text--md text--bold text--error"
+                  >
+                    English characters only
+                  </p>
+                </div>
+                <div class="form__input">
+                  <input
+                    v-model="$v.form.lastName.$model"
+                    type="text"
+                    :class="{
+                    'input--invalid': $v.form.lastName.$error,
+                    'input--valid': !$v.form.lastName.$error && $v.form.lastName.$dirty }"
+                    class="input input--capitalize"
+                    placeholder="Last Name"
+                  />
+                  <p
+                    v-if="!$v.form.lastName.required && $v.form.lastName.$error"
+                    class="text text--md text--bold text--error"
+                  >
+                    Last name is required
+                  </p>
+                  <p
+                    v-else-if="!$v.form.lastName.alpha && $v.form.lastName.$error"
+                    class="text text--md text--bold text--error"
+                  >
+                    English characters only
+                  </p>
+                </div>
+                <div class="form__input">
+                  <input
+                    v-model="$v.form.email.$model"
+                    :class="{
+                    'input--invalid': $v.form.email.$error,
+                    'input--valid': !$v.form.email.$error && $v.form.email.$dirty }"
+                    class="input"
+                    placeholder="email@example.com"
+                  />
+                  <p
+                    v-if="!$v.form.email.required && $v.form.email.$error"
+                    class="text text--md text--bold text--error"
+                  >
+                    E-mail is required
+                  </p>
+                  <p
+                    v-if="!$v.form.email.email && $v.form.email.$error"
+                    class="text text--md text--bold text--error"
+                  >
+                    E-mail must be valid
+                  </p>
+                </div>
               </div>
               <button
-                :disabled="!checkForm"
-                @click="resetForm"
+                v-if="!form.isFormSent"
+                @click.prevent="submitForm()"
+                :disabled="$v.form.$invalid"
                 class="form__btn base-btn"
-                type="reset"
               >
                 Get Started For Free
+              </button>
+              <button
+                v-if="form.isFormSent"
+                @click.prevent="refreshForm()"
+                class="form__btn base-btn"
+              >
+                Request Again
               </button>
             </form>
           </div>

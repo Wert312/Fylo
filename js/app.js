@@ -1,17 +1,42 @@
 Vue.use(VueSmoothScroll);
+Vue.use(vuelidate.default);
 
 const app = new Vue({
   el: "#app",
   data() {
     return {
-      showHeader: true,
-      headerColoured: false,
-      lastScrollPosition: 0,
-      firstName: "",
-      lastName: "",
-      email: ""
+      header: {
+        showHeader: true,
+        headerColoured: false,
+        lastScrollPosition: 0
+      },
+
+      form: {
+        firstName: null,
+        lastName: null,
+        email: null,
+        isFormSent: false
+      }
     };
   },
+
+  validations: {
+    form: {
+      firstName: {
+        required: validators.required,
+        alpha: validators.alpha
+      },
+      lastName: {
+        required: validators.required,
+        alpha: validators.alpha
+      },
+      email: {
+        required: validators.required,
+        email: validators.email
+      }
+    }
+  },
+
   mounted() {
     window.addEventListener("scroll", this.toggleHeader);
     window.addEventListener("scroll", this.changeHeaderColor);
@@ -20,42 +45,55 @@ const app = new Vue({
     window.removeEventListener("scroll", this.toggleHeader);
     window.removeEventListener("scroll", this.changeHeaderColor);
   },
+
+  computed: {
+    fullName() {
+      return `${
+        this.form.firstName.charAt(0).toUpperCase() +
+        this.form.firstName.slice(1)
+      } ${
+        this.form.lastName.charAt(0).toUpperCase() + this.form.lastName.slice(1)
+      }`;
+    }
+  },
+
   methods: {
     toggleHeader() {
       const currentScrollPosition = window.pageYOffset;
       if (currentScrollPosition < 0) {
         return;
       }
-      if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 0) {
+      if (
+        Math.abs(currentScrollPosition - this.header.lastScrollPosition) < 0
+      ) {
         return;
       }
-      this.showHeader = currentScrollPosition < this.lastScrollPosition;
-      this.lastScrollPosition = currentScrollPosition;
+      this.header.showHeader =
+        currentScrollPosition < this.header.lastScrollPosition;
+      this.header.lastScrollPosition = currentScrollPosition;
     },
 
     changeHeaderColor() {
       const currentScrollPosition = window.pageYOffset;
       if (currentScrollPosition < 150) {
-        this.headerColoured = false;
+        this.header.headerColoured = false;
       } else {
-        this.headerColoured = true;
+        this.header.headerColoured = true;
       }
     },
 
-    resetForm() {
-      this.firstName = "";
-      this.lastName = "";
-      this.email = "";
-    }
-  },
+    submitForm() {
+      this.form.isFormSent = true;
+    },
 
-  computed: {
-    checkForm() {
-      return (
-        this.firstName.length > 0 &&
-        this.lastName.length > 0 &&
-        this.email.length > 0
-      );
+    refreshForm() {
+      this.form.isFormSent = false;
+
+      this.form.firstName = null;
+      this.form.lastName = null;
+      this.form.email = null;
+
+      this.$v.$reset();
     }
   }
 });

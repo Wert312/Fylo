@@ -9,20 +9,15 @@
   box-shadow: 1px 1px 3px rgba(7, 4, 59, 0.157043);
   box-sizing: border-box;
 
-  &__error {
-    border: 1px solid red;
+  &--capitalize {
+    text-transform: capitalize;
   }
 
-  &:not(:last-of-type) {
-    margin-bottom: 10px;
+  &--invalid {
+    border: 3px solid red;
   }
 
-  @include for-tablet {
-    max-width: 480px;
-
-    &:not(:last-of-type) {
-      margin-right: 28px;
-      margin-bottom: 0;
-    }
+  &--valid {
+    border: 3px solid green;
   }
 }
