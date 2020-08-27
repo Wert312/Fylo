@@ -1,0 +1,68 @@
+.base-btn {
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  outline: none;
+  background: var(--color-accent-button);
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.15925);
+  border-radius: 24px;
+
+  &--link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:disabled {
+    background: gray;
+    &:hover,
+    &:active {
+      background: gray;
+      font-weight: normal;
+      color: var(--color-text);
+      transform: scale(1);
+    }
+  }
+
+  &:active {
+    font-weight: bold;
+    background: var(--color-text);
+    transition-property: background-color;
+    transition-duration: 0.2s;
+
+    color: var(--color-button-hover);
+    transition-property: color;
+    transition-duration: 0.2s;
+  }
+
+  @include for-desktop {
+    &:hover {
+      font-weight: bold;
+      background: var(--color-text);
+      transition-property: background-color;
+      transition-duration: 0.5s;
+
+      color: var(--color-button-hover);
+      transition-property: color;
+      transition-duration: 0.1s;
+
+      transform: scale(1.1);
+      transition-property: transform;
+      transition-duration: 0.2s;
+    }
+
+    &:not(:hover) {
+      transition-property: background-color;
+      transition-duration: 0.5s;
+
+      transition-property: color;
+      transition-duration: 0.1s;
+
+      transition-property: transform;
+      transition-duration: 0.2s;
+    }
+  }
+}

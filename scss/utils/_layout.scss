@@ -1,0 +1,18 @@
+.container {
+  &:first-of-type {
+    padding-top: 24px;
+  }
+
+  &:last-of-type {
+    padding-bottom: 60px;
+  }
+
+  padding-top: 120px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.content-wrapper {
+  max-width: 1140px;
+  margin: 0 auto;
+}

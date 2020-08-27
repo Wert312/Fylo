@@ -1,0 +1,82 @@
+.header {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  background: var(--main-bg);
+  transform: translate3d(0, 0, 0);
+  transition: 0.2s all ease-out;
+  z-index: 10;
+
+  &__content {
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  &--hidden {
+    box-shadow: none;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  &--coloured {
+    background: var(--color-accent-button);
+  }
+
+  @include for-desktop {
+    height: 60px;
+  }
+
+  &__logo {
+    min-width: 67px;
+    padding-left: 20px;
+    height: 20px;
+    display: flex;
+    img {
+      max-width: 100%;
+      height: 100%;
+    }
+
+    @include for-tablet {
+      min-width: 120px;
+      height: 30px;
+    }
+
+    @include for-desktop {
+      min-width: 176px;
+      height: 42px;
+    }
+  }
+  &__links {
+    width: 100%;
+    padding-right: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__link {
+    font-size: 12px;
+    line-height: 14px;
+    font-family: var(--font-heading);
+    &:not(:last-child) {
+      margin-right: 25px;
+    }
+
+    @include for-tablet {
+      font-size: 16px;
+      &:not(:last-child) {
+        margin-right: 58px;
+      }
+    }
+
+    @include for-desktop {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

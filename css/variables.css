@@ -1,0 +1,18 @@
+:root {
+  /* Colors */
+  --main-bg: hsl(218, 28%, 13%);
+  --reviews-bg: hsl(219, 30%, 18%);
+  --form-bg: #1b2330;
+  --color-accent-button: linear-gradient(
+    152.13deg,
+    #63e1d9 -150.21%,
+    #34a0cd 170.03%
+  );
+  --color-button-hover: #41b2d0;
+
+  --color-text: #ffffff;
+
+  /* Fonts */
+  --font-text: "Raleway", sans-serif;
+  --font-heading: "Open Sans", sans-serif;
+}

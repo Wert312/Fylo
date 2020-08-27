@@ -1,0 +1,28 @@
+.input {
+  height: 48px;
+  width: 100%;
+  max-width: 280px;
+  padding: 0;
+  padding-left: 15px;
+  outline: none;
+  border: none;
+  box-shadow: 1px 1px 3px rgba(7, 4, 59, 0.157043);
+  box-sizing: border-box;
+
+  &__error {
+    border: 1px solid red;
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 10px;
+  }
+
+  @include for-tablet {
+    max-width: 480px;
+
+    &:not(:last-of-type) {
+      margin-right: 28px;
+      margin-bottom: 0;
+    }
+  }
+}
