@@ -304,6 +304,10 @@
   text-transform: capitalize;
 }
 
+.input--lowercase {
+  text-transform: lowercase;
+}
+
 .input--invalid {
   border: 3px solid red;
 }

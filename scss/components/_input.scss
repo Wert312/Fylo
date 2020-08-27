@@ -13,6 +13,10 @@
     text-transform: capitalize;
   }
 
+  &--lowercase {
+    text-transform: lowercase;
+  }
+
   &--invalid {
     border: 3px solid red;
   }
