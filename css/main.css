@@ -774,7 +774,8 @@
 }
 
 .form__input {
-  width: 100%;
+  width: 280px;
+  margin: 0 auto;
 }
 
 .form__input:not(:last-of-type) {
@@ -784,6 +785,7 @@
 @media (min-width: 768px) {
   .form__input {
     max-width: 480px;
+    display: block;
   }
   .form__input:not(:last-of-type) {
     margin-right: 28px;

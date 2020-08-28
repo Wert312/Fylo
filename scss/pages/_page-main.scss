@@ -324,13 +324,16 @@
   }
 
   &__input {
-    width: 100%;
+    width: 280px;
+    margin: 0 auto;
+
     &:not(:last-of-type) {
       margin-bottom: 10px;
     }
 
     @include for-tablet {
       max-width: 480px;
+      display: block;
 
       &:not(:last-of-type) {
         margin-right: 28px;
