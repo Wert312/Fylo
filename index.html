@@ -303,7 +303,7 @@
                     Last name is required
                   </p>
                   <p
-                    v-else-if="!$v.form.lastName.alpha && $v.form.lastName.$error"
+                    v-else-if="!$v.form.lastName.isNameValid && $v.form.lastName.$error"
                     class="text text--md text--bold text--error"
                   >
                     English characters only

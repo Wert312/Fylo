@@ -24,11 +24,11 @@ const app = new Vue({
     form: {
       firstName: {
         required: validators.required,
-        alpha: validators.alpha
+        isNameValid: validators.helpers.regex("isNameValid", /^[a-zA-Z\s]*$/)
       },
       lastName: {
         required: validators.required,
-        alpha: validators.alpha
+        isNameValid: validators.helpers.regex("isNameValid", /^[a-zA-Z\s]*$/)
       },
       email: {
         required: validators.required,
