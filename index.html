@@ -280,7 +280,7 @@
                     First name is required
                   </p>
                   <p
-                    v-else-if="!$v.form.firstName.alpha && $v.form.firstName.$error"
+                    v-else-if="!$v.form.firstName.isNameValid && $v.form.firstName.$error"
                     class="text text--md text--bold text--error"
                   >
                     English characters only
