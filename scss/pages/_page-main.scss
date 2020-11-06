@@ -1,354 +1,356 @@
 // Intro section
 .intro {
-  background-color: var(--main-bg);
+    background-color: var(--main-bg);
 
-  &__title {
-    max-width: 296px;
+    &__title {
+        max-width: 296px;
 
-    @include for-tablet {
-      max-width: 734px;
-    }
-  }
-
-  &__image {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 48px;
-    margin-bottom: 33px;
-    img {
-      max-width: 300px;
-      height: auto;
+        @include for-tablet {
+            max-width: 734px;
+        }
     }
 
-    @include for-tablet {
-      img {
-        max-width: 500px;
-        height: auto;
-      }
+    &__image {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 48px;
+        margin-bottom: 33px;
+        img {
+            max-width: 300px;
+            height: auto;
+        }
+
+        @include for-tablet {
+            img {
+                max-width: 500px;
+                height: auto;
+            }
+        }
+
+        @include for-desktop {
+            margin-top: 75px;
+            img {
+                max-width: 720px;
+                height: auto;
+            }
+        }
     }
 
-    @include for-desktop {
-      margin-top: 75px;
-      img {
-        max-width: 720px;
-        height: auto;
-      }
+    &__info {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
-  }
 
-  &__info {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+    &__text {
+        max-width: 296px;
 
-  &__text {
-    max-width: 296px;
-
-    @include for-tablet {
-      max-width: 590px;
+        @include for-tablet {
+            max-width: 590px;
+        }
     }
-  }
 
-  &__form {
-    width: 100%;
-  }
-
-  &__btn {
-    max-width: 240px;
-    margin-top: 32px;
-    height: 48px;
-    width: 100%;
-
-    @include for-tablet {
-      max-width: 280px;
-      height: 56px;
+    &__form {
+        width: 100%;
     }
-  }
+
+    &__btn {
+        max-width: 240px;
+        margin-top: 32px;
+        height: 48px;
+        width: 100%;
+
+        @include for-tablet {
+            max-width: 280px;
+            height: 56px;
+        }
+    }
 }
 
 // Features section
 .features {
-  background-color: var(--main-bg);
+    background-color: var(--main-bg);
 
-  &__grid {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: repeat(4, auto);
-    grid-row-gap: 80px;
+    &__grid {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(4, auto);
+        grid-row-gap: 80px;
 
-    @include for-tablet {
-      grid-template-columns: repeat(2, auto);
-      grid-template-rows: repeat(2, auto);
-      grid-column-gap: 15px;
+        @include for-tablet {
+            grid-template-columns: repeat(2, auto);
+            grid-template-rows: repeat(2, auto);
+            grid-column-gap: 15px;
+        }
     }
-  }
 
-  &__item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &__image {
-    width: 80px;
-    text-align: center;
-    height: 80px;
-    margin-bottom: 24px;
-
-    img {
-      max-width: 100%;
-      max-height: 100%;
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
-  }
 
-  &__text {
-    text-align: center;
-    max-width: 300px;
+    &__image {
+        width: 80px;
+        text-align: center;
+        height: 80px;
+        margin-bottom: 24px;
 
-    @include for-tablet {
-      max-width: 360px;
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
     }
-  }
+
+    &__text {
+        text-align: center;
+        max-width: 300px;
+
+        @include for-tablet {
+            max-width: 360px;
+        }
+    }
 }
 
 // Share section
 .share {
-  background-color: var(--main-bg);
+    background-color: var(--main-bg);
 
-  &__image {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 48px;
-    img {
-      max-width: 300px;
-      height: auto;
+    &__image {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 48px;
+        img {
+            max-width: 300px;
+            height: auto;
+        }
+
+        @include for-tablet {
+            img {
+                max-width: 500px;
+                height: auto;
+            }
+        }
+
+        @include for-desktop {
+            margin-bottom: 0;
+            img {
+                max-width: 520px;
+                height: auto;
+            }
+        }
     }
 
-    @include for-tablet {
-      img {
-        max-width: 500px;
-        height: auto;
-      }
+    &__row {
+        @include for-desktop {
+            display: flex;
+            justify-content: space-between;
+        }
     }
 
-    @include for-desktop {
-      margin-bottom: 0;
-      img {
-        max-width: 520px;
-        height: auto;
-      }
-    }
-  }
+    &__info {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
-  &__row {
-    @include for-desktop {
-      display: flex;
-      justify-content: space-between;
-    }
-  }
-
-  &__info {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    @include for-desktop {
-      align-items: flex-start;
-      text-align: left;
-      padding-left: 57px;
-    }
-  }
-
-  &__title {
-    margin-bottom: 16px;
-    text-align: left;
-
-    @include for-desktop {
-      max-width: 500px;
-    }
-  }
-
-  &__text {
-    &:first-of-type {
-      margin-bottom: 16px;
+        @include for-desktop {
+            align-items: flex-start;
+            text-align: left;
+            padding-left: 57px;
+        }
     }
 
-    @include for-tablet {
-      max-width: 590px;
+    &__title {
+        margin-bottom: 16px;
+        text-align: left;
+
+        @include for-desktop {
+            max-width: 500px;
+        }
     }
 
-    @include for-desktop {
-      text-align: left;
+    &__text {
+        &:first-of-type {
+            margin-bottom: 16px;
+        }
+
+        @include for-tablet {
+            max-width: 590px;
+        }
+
+        @include for-desktop {
+            text-align: left;
+        }
     }
-  }
 }
 
 // Reviews section
 .reviews {
-  background-color: var(--main-bg);
+    background-color: var(--main-bg);
 
-  &__row {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    &__row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
-    @include for-tablet {
-      flex-wrap: wrap;
+        @include for-tablet {
+            flex-wrap: wrap;
+        }
+
+        @include for-desktop {
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
     }
-
-    @include for-desktop {
-      flex-direction: row;
-      flex-wrap: nowrap;
-    }
-  }
 }
 
 .card {
-  position: relative;
-  width: 280px;
-  min-height: 160px;
-  box-shadow: 0px 0px 8px 4px rgba(56, 56, 56, 0.0458843);
-  background-color: var(--reviews-bg);
+    position: relative;
+    width: 280px;
+    min-height: 160px;
+    box-shadow: 0px 0px 8px 4px rgba(56, 56, 56, 0.0458843);
+    background-color: var(--reviews-bg);
 
-  @include for-tablet {
-    width: 360px;
-  }
-
-  @include for-desktop {
-    &:not(:last-of-type) {
-      margin-right: 30px;
+    @include for-tablet {
+        width: 360px;
     }
-  }
-
-  &:first-of-type::before {
-    content: "";
-    position: absolute;
-    width: 34px;
-    height: 32px;
-    background-image: url("../src/images/bg-quotes.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    z-index: 1;
-    top: -15px;
-  }
-
-  &:not(:last-of-type) {
-    margin-bottom: 24px;
 
     @include for-desktop {
-      margin-bottom: 0;
-    }
-  }
-
-  &__content {
-    padding: 24px 20px;
-  }
-
-  &-author {
-    margin-top: 17px;
-    display: flex;
-    align-items: center;
-
-    &__logo {
-      display: flex;
-      padding-right: 8px;
-      img {
-        height: 24px;
-        width: 24px;
-        border-radius: 50%;
-      }
+        &:not(:last-of-type) {
+            margin-right: 30px;
+        }
     }
 
-    &__name {
-      margin-top: 0;
-      margin-bottom: 4px;
+    &:first-of-type::before {
+        content: '';
+        position: absolute;
+        width: 34px;
+        height: 32px;
+        background-image: url('../src/images/bg-quotes.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: 1;
+        top: -15px;
     }
-  }
+
+    &:not(:last-of-type) {
+        margin-bottom: 24px;
+
+        @include for-desktop {
+            margin-bottom: 0;
+        }
+    }
+
+    &__content {
+        padding: 24px 20px;
+    }
+
+    &-author {
+        margin-top: 17px;
+        display: flex;
+        align-items: center;
+
+        &__logo {
+            display: flex;
+            padding-right: 8px;
+            img {
+                height: 24px;
+                width: 24px;
+                border-radius: 50%;
+            }
+        }
+
+        &__name {
+            margin-top: 0;
+            margin-bottom: 4px;
+        }
+    }
 }
 
 // Form section
 .form {
-  background-color: var(--main-bg);
+    background-color: var(--main-bg);
 
-  &__wrapper {
-    display: flex;
-    max-width: 860px;
-    padding: 40px 26px;
-    margin: 0 auto;
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.254274);
-    background-color: var(--form-bg);
-  }
-
-  &__inner-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  &__text {
-    margin-bottom: 32px;
-
-    @include for-tablet {
-      text-align: center;
-    }
-  }
-
-  &__field {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    margin-bottom: 25px;
-    font-family: var(--font-text);
-
-    @include for-tablet {
-      flex-direction: row;
-      margin-bottom: 20px;
-    }
-  }
-
-  &__input {
-    width: 280px;
-    margin: 0 auto;
-
-    &:not(:last-of-type) {
-      margin-bottom: 10px;
+    &__wrapper {
+        display: flex;
+        max-width: 860px;
+        padding: 40px 26px;
+        margin: 0 auto;
+        box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.254274);
+        background-color: var(--form-bg);
     }
 
-    @include for-tablet {
-      max-width: 480px;
-      display: block;
-
-      &:not(:last-of-type) {
-        margin-right: 28px;
-        margin-bottom: 0;
-      }
+    &__inner-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
     }
-  }
 
-  &__btn {
-    height: 48px;
-    width: 100%;
-    max-width: 280px;
+    &__text {
+        margin-bottom: 32px;
 
-    @include for-tablet {
-      max-width: 200px;
+        @include for-tablet {
+            text-align: center;
+        }
     }
-  }
+
+    &__field {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        margin-bottom: 25px;
+        font-family: var(--font-text);
+
+        @include for-tablet {
+            flex-direction: row;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+
+        &:not(:last-of-type) {
+            margin-bottom: 10px;
+        }
+
+        @include for-tablet {
+            max-width: 480px;
+            display: block;
+
+            &:not(:last-of-type) {
+                margin-right: 28px;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__btn {
+        height: 48px;
+        width: 100%;
+        max-width: 280px;
+
+        @include for-tablet {
+            max-width: 200px;
+        }
+    }
 }

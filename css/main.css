@@ -646,7 +646,7 @@
 }
 
 .card:first-of-type::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 34px;
   height: 32px;
@@ -774,8 +774,14 @@
 }
 
 .form__input {
-  width: 280px;
+  width: 100%;
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .form__input:not(:last-of-type) {
